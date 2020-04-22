@@ -1,0 +1,35 @@
+<div ng-controller="AddRezervacijaCtrl">
+<br/>
+<h1>Add Rezervacija</h1>
+	<div class="row">
+		<div class="col-md-6">
+			<form>
+				<div class="form-group">
+					<label>Naziv Sobe</label>
+					<select ng-model="newRezervacija.sobaId"  class="form-control">
+						<option ng-repeat="s in sobe"  value="{{s.id}}">{{s.naziv}}</option>
+					</select>
+				</div>
+								
+				<div class="form-group">
+					<label>Datum i Vreme Ulaz</label>
+					<input class="form-control" ng-model="newRezervacija.datetimeUlaz"/>
+				</div>
+				
+				<div class="form-group">
+					<label>Datum i Vreme Izlaz</label>
+					<input class="form-control"  ng-model="newRezervacija.datetimeIzlaz"/>
+				</div>
+								
+				<div class="form-group">
+					<label>Gost</label>
+					<select ng-model="newRezervacija.gostId"  class="form-control">
+						<option ng-repeat="g in gosti"  value="{{g.id}}">{{g.naziv}}</option>
+					</select>
+				</div>
+				
+				<button class="btn btn-primary" ng-click="doAdd()">Add</button>
+			</form>
+		</div>
+		</div>
+</div>

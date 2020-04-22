@@ -1,0 +1,33 @@
+<div ng-controller="EditRezervacijaCtrl">
+<br/>
+<h1>Edit rezervacija</h1>
+	<form>
+		<div class="form-group">
+			<label>Naziv Sobe</label>
+			<select ng-model="rezervacija.sobaId"  class="form-control">
+				<option ng-repeat="s in sobe" ng-selected="s.id == rezervacija.sobaId" value="{{s.id}}">{{s.naziv}}</option>
+			</select>
+		</div>
+		
+		<div class="form-group">
+			<label>Datum i Vreme Ulaz</label>
+			<input class="form-control" ng-model="rezervacija.datetimeUlaz"/>
+		</div>
+		
+		<div class="form-group">
+			<label>Datum i Vreme Izlaz</label>
+			<input class="form-control" ng-model="rezervacija.datetimeIzlaz"/>
+		</div>
+		
+		<div class="form-group">
+			<label>Gost</label>
+			<select ng-model="rezervacija.gostId"  class="form-control">
+				<option ng-repeat="g in gosti" ng-selected="g.id == rezervacija.gostId" value="{{g.id}}">{{g.naziv}}</option>
+			</select>
+		</div>
+				
+
+		<button class="btn btn-primary" ng-click="doEdit()">Edit</button>       <!-- IZ REZERVACIJA DTO -->
+	</form>
+
+</div>

@@ -1,0 +1,36 @@
+<div ng-controller="CenovnikCtrl">
+
+	<br/>
+		<h3 class="centrirano">Cenovnik Soba</h3>	
+		
+	<br/>
+	
+		<div class="col-12">
+				
+			<table class="table table-bordered table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>R/B</th>
+						<th>Naziv</th>
+						<th>Broj Soba</th>
+						<th>Broj Kreveta</th>
+						<th>Cena po danu</th>
+					</tr>
+				</thead>
+				<tbody class="redovi">
+					<tr ng-repeat="c in listasoba">
+						<td>{{c.id}}</td>
+						<td>{{c.naziv}}</td>
+						<td>{{c.brojsoba}}</td>
+						<td>{{c.brojkreveta}}</td>
+						<td>{{c.cena}}</td>
+					</tr>
+				</tbody>
+			</table>
+			
+		</div>
+		
+	<br/>
+	
+	
+</div>

@@ -1,0 +1,28 @@
+<div ng-controller="EditGostCtrl">
+<br/>
+<h1>Edit Gost</h1>
+	<form>
+		<div class="form-group">
+			<label>Ime i Prezime</label>
+			<input class="form-control" ng-model="gost.naziv" />
+		</div>
+		
+		<div class="form-group">
+			<label>JMBG</label>
+			<input class="form-control" ng-model="gost.jmbg"/>
+		</div>
+		
+		<div class="form-group">
+			<label>Mesto</label>
+			<input class="form-control" ng-model="gost.mesto"/>
+		</div>
+				
+		<div class="form-group">
+			<label>Telefon</label>
+			<input class="form-control" ng-model="gost.telefon"/>
+		</div>
+		
+		<button class="btn btn-primary" ng-click="doEdit()">Edit</button>
+	</form>
+	
+</div>

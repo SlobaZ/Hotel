@@ -1,0 +1,93 @@
+<div ng-controller="GostCtrl">
+
+	<br/>	
+	<h3 class="centrirano">Gosti</h3>
+	
+	<div class="row">		
+		<div class="col-md-7">
+		<h3>Pretraga gostiju:</h3>
+		<form>
+			<div class="form-group">
+				<label>Ime i Prezime</label>
+				<input ng-model="search.naziv" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Mesto</label>
+				<input ng-model="search.mesto" class="form-control">
+			</div>
+			
+			<button ng-click="doSearch()" class="btn btn-primary">Search</button>
+		</form>	
+	</div>
+	<div class="col-md-5">
+	<br/>
+	<h3 class="centrirano">Unos novog gosta:</h3>
+	<br/>
+	<div class="centrirano">
+	<button class="btn btn-primary" ng-click="goToAdd()">Add New</button>
+	</div>
+	</div>
+	</div>
+	<br/>
+			
+		<div class="col-12">
+		
+		<div style="margin-bottom:10px" class="btn-group float-right">
+			<button ng-disabled="pageNum == 0" ng-click="changePage(-1)" class="btn btn-primary">Previous</button>
+			<button ng-disabled="pageNum == totalPages - 1" ng-click="changePage(1)" class="btn btn-primary">Next</button>
+		</div>		
+		
+			<table class="table table-bordered table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>ID</th>
+						<th>Ime i Prezime</th>
+						<th>JMBG</th>
+						<th>Mesto</th>
+						<th>Telefon</th>
+						<th>Izmeni / Obrisi</th>
+					</tr>
+				</thead>
+				<tbody class="redovi">
+					<tr ng-repeat="g in gosti" ng-click="GetDetails($index)">
+						<td>{{g.id}}</td>
+						<td>{{g.naziv}}</td>
+						<td>{{g.jmbg}}</td>
+						<td>{{g.mesto}}</td>
+						<td>{{g.telefon}}</td>
+						<td><button class="btn btn-warning" ng-click="goToEdit(g.id)">Edit</button>
+						<button class="btn btn-danger" ng-click="doDelete(g.id)">Delete</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+		</div>
+
+	<br/>
+	
+	<div class="col-8">
+	<form> 	 	
+ 	 	<div class="form-group">
+  		  <h3>Gost:</h3>
+  		  <br/>
+  		  <table class="table table-bordered table-striped">
+  		  <tr> <td> <h5>ID GOSTA:</h5> </td>   <td> <h5>{{podatak.gostId}}</h5> </td> </tr>
+  		  <tr> <td> <h5>IME I PREZIME: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5> </td>  <td> <h5>{{podatak.gostNaziv}}</h5> </td> </tr>
+  		  <tr> <td> <h5>ID SOBE:</h5> </td> <td> <h5>{{podatak.sobaId}}</h5> </td> </tr>
+  		  <tr> <td> <h5>NAZIV SOBE:</h5> </td> <td> <h5>{{podatak.sobaNaziv}}</h5> </td> </tr>
+  		  <tr> <td> <h5>ULAZ:</h5> </td> <td> <h5>{{podatak.ulaz}}</h5> </td> </tr>
+  		  <tr> <td> <h5>IZLAZ:</h5> </td> <td> <h5>{{podatak.izlaz}}</h5> </td> </tr>
+  		  <tr> <td> <h5>BROJ DANA:</h5> </td> <td> <h5>{{podatak.brojDana}}</h5> </td> </tr>
+		  <tr> <td> <h5>CENA:</h5> </td> <td> <h5>{{podatak.cena}}</h5> </td> </tr>
+  		  </table>
+  		</div>
+
+	</form>
+	</div>
+
+
+
+
+
+</div>

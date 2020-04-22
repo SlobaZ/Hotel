@@ -1,0 +1,31 @@
+<div ng-controller="AddGostCtrl">
+<br/>
+<h1>Add Gost</h1>
+	<div class="row">
+		<div class="col-md-6">
+			<form>
+				<div class="form-group">
+					<label>Ime i Prezime</label>
+					<input class="form-control"  ng-model="newGost.naziv" />
+				</div>
+								
+				<div class="form-group">
+					<label>Mesto</label>
+					<input class="form-control" ng-model="newGost.mesto"/>
+				</div>
+				
+				<div class="form-group">
+					<label>JMBG</label>
+					<input class="form-control"  ng-model="newGost.jmbg"/>
+				</div>
+								
+				<div class="form-group">
+					<label>Telefon</label>
+					<input class="form-control"  ng-model="newGost.telefon"/>
+				</div>
+				
+				<button class="btn btn-primary" ng-click="doAdd()">Add</button>
+			</form>
+		</div>
+		</div>
+</div>

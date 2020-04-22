@@ -1,0 +1,23 @@
+<div ng-controller="EditSobaCtrl">
+<br/>
+<h1>Edit soba</h1>
+	<form>
+		<div class="form-group">
+			<label>Naziv</label>
+			<input class="form-control" ng-model="soba.naziv" />
+		</div>
+		
+		<div class="form-group">
+			<label>Broj Kreveta</label>
+			<input class="form-control" ng-model="soba.brojKreveta"/>
+		</div>
+				
+		<div class="form-group">
+			<label>Slobodno</label>
+			<input class="form-control" ng-model="soba.slobodnoTekst"/>
+		</div>
+				
+		<button class="btn btn-primary" ng-click="doEdit()">Edit</button>
+	</form>
+	
+</div>

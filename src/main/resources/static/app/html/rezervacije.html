@@ -1,0 +1,66 @@
+<div ng-controller="RezervacijeCtrl">
+
+	<br/>	
+	<h3 class="centrirano">Pretraga rezervacija:</h3>	
+	<div class="row">		
+		<div class="col-md-7">
+		<form>
+			<div class="form-group">
+				<label>Naziv Sobe</label> 
+				<input ng-model="search.nazivSobe" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Datum i Vreme Pocetak</label>
+				<input ng-model="search.datumvremePocetak" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Datum i Vreme Kraj</label>
+				<input ng-model="search.datumvremeKraj" class="form-control">
+			</div>
+			<button ng-click="doSearch()" class="btn btn-primary">Search</button>
+		</form>	
+	</div>
+	<div class="col-md-5">
+	<br/>
+	<h3 class="centrirano">Unos nove rezervacije:</h3>
+	<br/>
+	<div class="centrirano">
+	<button class="btn btn-primary" ng-click="goToAdd()">Add New</button>
+	</div>
+	</div>
+	</div>
+	
+	<br/>
+		<h3 class="centrirano">Sve Transakcije pregled:</h3>	
+		<div class="col-12">
+		
+		<div style="margin-bottom:10px" class="btn-group float-right">
+			<button ng-disabled="pageNum == 0" ng-click="changePage(-1)" class="btn btn-primary">Previous</button>
+			<button ng-disabled="pageNum == totalPages - 1" ng-click="changePage(1)" class="btn btn-primary">Next</button>
+		</div>		
+		
+			<table class="table table-bordered table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>Naziv Sobe</th>
+						<th>Ulaz</th>
+						<th>Izlaz</th>
+						<th>Gost</th>						
+						<th>Izmeni / Obrisi</th>
+					</tr>
+				</thead>
+				<tbody>        <!-- IZ REZERVACIJA DTO -->
+					<tr ng-repeat="r in rezervacije">
+						<td>{{r.sobaNaziv}}</td>
+						<td>{{r.datetimeUlaz}}</td>
+						<td>{{r.datetimeIzlaz}}</td>
+						<td>{{r.gostNaziv}}</td>
+						<td><button class="btn btn-warning" ng-click="goToEdit(r.id)">Edit</button>
+						<button class="btn btn-danger" ng-click="doDelete(r.id)">Delete</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
