@@ -106,6 +106,13 @@ public class ApiRezervacijaController {
 		Soba soba = sobaService.getOne(newrezervacijaDTO.getSobaId()) ;
 		Gost gost = gostService.getOne(newrezervacijaDTO.getGostId());
 		
+		String ulaznaGranica = newrezervacijaDTO.getDatetimeUlaz();
+		String izlaznaGranica = newrezervacijaDTO.getDatetimeIzlaz();
+		
+		if(PomocnaKlasa.odgovaraOpesegu(ulaznaGranica, izlaznaGranica)==false) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		
 		soba.setSlobodno(false);
 		
 		sobaService.save(soba);
