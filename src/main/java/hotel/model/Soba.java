@@ -2,8 +2,11 @@ package hotel.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -23,6 +26,11 @@ public class Soba  {
 	private boolean slobodno;
 	
 	private String slobodnoTekst;
+	
+	
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="gost")
+	private Gost gost;
 	
 	
 	public Soba() {
@@ -72,9 +80,17 @@ public class Soba  {
 	public void setSlobodnoTekst(String slobodnoTekst) {
 		this.slobodnoTekst = slobodnoTekst;
 	}
+
+
+
+	public Gost getGost() {
+		return gost;
+	}
+
+	public void setGost(Gost gost) {
+		this.gost = gost;
+	}
 	
 
 	
-	
-
 }
