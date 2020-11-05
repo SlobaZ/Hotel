@@ -63,9 +63,9 @@ public class JpaGostService implements GostService{
 
 	
 	@Override
-	public Rezervacija podatakGosta(Integer idG) {
-		Rezervacija rezervacija = gostRepository.podatakGosta(idG);
-		return rezervacija;
+	public List<Rezervacija> podatakGosta(Integer idG) {
+		List<Rezervacija> rezervacije = gostRepository.podatakGosta(idG);
+		return rezervacije;
 	}
 	
 	
