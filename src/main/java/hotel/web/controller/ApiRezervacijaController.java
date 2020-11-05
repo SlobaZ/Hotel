@@ -25,6 +25,7 @@ import hotel.service.RezervacijaService;
 import hotel.service.SobaService;
 import hotel.support.RezervacijaDTOToRezervacija;
 import hotel.support.RezervacijaToRezervacijaDTO;
+import hotel.utils.PomocnaKlasa;
 import hotel.web.dto.RezervacijaDTO;
 
 
@@ -113,6 +114,10 @@ public class ApiRezervacijaController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		
+		if(soba.getSlobodnoTekst().equals("NE")) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		
 		soba.setSlobodno(false);
 		
 		sobaService.save(soba);
@@ -145,8 +150,6 @@ public class ApiRezervacijaController {
 	public ResponseEntity<Void> handle() {
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
-	
-
 	
 	
 	
