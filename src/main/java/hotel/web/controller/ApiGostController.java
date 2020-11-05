@@ -134,9 +134,17 @@ public class ApiGostController {
 	
 	@RequestMapping(value="/{idG}/podatakGosta", method=RequestMethod.GET)
 	ResponseEntity<?> podatakGosta(@PathVariable Integer idG){
-		Rezervacija rezervacija = gostService.podatakGosta(idG);
-		if(rezervacija==null){
+		
+		List<Rezervacija> rezervacijeSve = gostService.podatakGosta(idG);
+		
+		if(rezervacijeSve==null){
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+		Rezervacija	rezervacija = rezervacijeSve.get(0);
+		for(Rezervacija rezerv : rezervacijeSve) {
+			if(rezervacija.getDatumvremeUlaz().before(rezerv.getDatumvremeUlaz())) {
+				rezervacija = rezerv;
+			}
 		}
 		Integer idGosta = rezervacija.getGost().getId();
 		String gostId = String.valueOf (idGosta) ; 
@@ -165,8 +173,6 @@ public class ApiGostController {
 		return new ResponseEntity<List<String>>( podatak , HttpStatus.OK );
 	}
 	
-
-
 	
 	
 }
