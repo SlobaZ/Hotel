@@ -10,6 +10,10 @@ public class SobaDTO {
 	private String slobodnoTekst;
 	
 
+	private Integer gostId;
+	private String gostNaziv;
+
+
 	public Integer getId() {
 		return id;
 	}
@@ -41,6 +45,20 @@ public class SobaDTO {
 		this.slobodnoTekst = slobodnoTekst;
 	}
 	
+	
+
+	public Integer getGostId() {
+		return gostId;
+	}
+	public void setGostId(Integer gostId) {
+		this.gostId = gostId;
+	}
+	public String getGostNaziv() {
+		return gostNaziv;
+	}
+	public void setGostNaziv(String gostNaziv) {
+		this.gostNaziv = gostNaziv;
+	}
 	
 
 }
