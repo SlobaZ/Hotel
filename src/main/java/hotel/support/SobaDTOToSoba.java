@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
+import hotel.model.Gost;
 import hotel.model.Soba;
+import hotel.service.GostService;
 import hotel.service.SobaService;
 import hotel.web.dto.SobaDTO;
 
@@ -16,11 +18,16 @@ public class SobaDTOToSoba implements Converter<SobaDTO, Soba>{
 
 	@Autowired
 	private SobaService sobaService;
-		
+	
+	@Autowired
+	private GostService gostService;
+	
 	
 	@Override
 	public Soba convert(SobaDTO sobaDTO) {
-						
+		
+		Gost gost = gostService.getOne(sobaDTO.getGostId());
+				
 			Soba soba = null;
 			
 			if(sobaDTO.getId() != null) {
@@ -36,6 +43,10 @@ public class SobaDTOToSoba implements Converter<SobaDTO, Soba>{
 			soba.setBrojKreveta(sobaDTO.getBrojKreveta());
 			soba.setSlobodno(sobaDTO.isSlobodno());
 			soba.setSlobodnoTekst(sobaDTO.getSlobodnoTekst());
+			
+			if(gost!=null) {
+			soba.setGost(gost);
+			}
 			
 			return soba;
 		}
