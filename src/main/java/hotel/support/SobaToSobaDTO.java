@@ -27,6 +27,15 @@ public class SobaToSobaDTO implements Converter<Soba, SobaDTO>{
 		retValue.setSlobodno(soba.isSlobodno());
 		retValue.setSlobodnoTekst(soba.getSlobodnoTekst());
 		
+		if(soba.getGost()!=null) {
+		retValue.setGostId(soba.getGost().getId());
+		retValue.setGostNaziv(soba.getGost().getNaziv());
+		}
+		else {
+			retValue.setGostId(0);
+			retValue.setGostNaziv("");
+		}
+		
 		return retValue;
 	}
 
