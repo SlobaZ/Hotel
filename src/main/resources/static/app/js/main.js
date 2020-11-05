@@ -625,8 +625,3 @@ hotelApp.controller("AddRezervacijaCtrl", function($scope, $http, $routeParams, 
 	
 });
 
-
-
-
-
-
