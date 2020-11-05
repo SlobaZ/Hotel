@@ -41,6 +41,7 @@
 						<th>Naziv</th>
 						<th>Broj Kreveta</th>
 						<th>Slobodno</th>
+						<th>Gost</th>
 						<th>Izmeni</th>
 					</tr>
 				</thead>
@@ -50,6 +51,7 @@
 						<td>{{s.naziv}}</td>
 						<td>{{s.brojKreveta}}</td>
 						<td>{{s.slobodnoTekst}}</td>
+						<td>{{s.gostNaziv}}</td>
 						<td><button class="btn btn-warning" ng-click="goToEdit(s.id)">Edit</button>
 						</td>
 					</tr>
@@ -61,38 +63,6 @@
 	<br/>
 	<br/>
 	
-	<h3 class="centrirano">Sobe sa Gostima</h3>
-			<div class="col-12">
-		
-		<div style="margin-bottom:10px" class="btn-group float-right">
-			<button ng-disabled="pageNumR == 0" ng-click="changePageR(-1)" class="btn btn-primary">Previous</button>
-			<button ng-disabled="pageNumR == totalPagesR - 1" ng-click="changePageR(1)" class="btn btn-primary">Next</button>
-		</div>		
-		
-			<table class="table table-bordered table-striped">
-				<thead class="thead-dark">
-					<tr>
-						<th>ID</th>
-						<th>Naziv</th>
-						<th>Broj Kreveta</th>
-						<th>Slobodno</th>
-						<th>Gost</th>
-					</tr>
-				</thead>
-				<tbody class="redovi">
-					<tr ng-repeat="r in rezervacije">
-						<td>{{r.sobaId}}</td>
-						<td>{{r.sobaNaziv}}</td>
-						<td>{{r.sobaBrojKreveta}}</td>
-						<td>{{r.sobaSlobodnoTekst}}</td>
-						<td>{{r.gostNaziv}}</td>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			
-		</div>	
-		
-	<br/>		
+	
 		
 </div>
