@@ -21,6 +21,6 @@ public interface GostService {
 			@Param("mesto") String mesto, 
 			 int pageNum);
 	
-	Rezervacija podatakGosta(Integer idG);
+	List<Rezervacija> podatakGosta(Integer idG);
 
 }
