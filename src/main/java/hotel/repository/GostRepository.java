@@ -1,5 +1,7 @@
 package hotel.repository;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -25,6 +27,6 @@ public interface GostRepository extends JpaRepository<Gost, Integer>{
 	
 	
 	@Query("SELECT r FROM Rezervacija r WHERE r.gost.id = :idG")
-	Rezervacija podatakGosta( @Param("idG") Integer idG);
+	List<Rezervacija> podatakGosta( @Param("idG") Integer idG);
 	
 }
