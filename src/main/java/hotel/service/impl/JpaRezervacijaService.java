@@ -48,10 +48,12 @@ public class JpaRezervacijaService implements RezervacijaService{
 
 	@Override
 	public Rezervacija save(Rezervacija rezervacija) {
+		
 		Soba soba = rezervacija.getSoba();
 		Gost gost = rezervacija.getGost();
 		soba.setSlobodno(false);
 		soba.setSlobodnoTekst("NE");
+		soba.setGost(gost);
 		sobaRepository.save(soba);
 		gostRepository.save(gost);	
 		return rezervacijaRepository.save(rezervacija);
